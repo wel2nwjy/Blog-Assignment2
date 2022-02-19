@@ -13,6 +13,7 @@ const PORT='5000';
 
 const app=express();
 
+app.use(express.static('./build/'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
@@ -39,6 +40,10 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
   app.post("/api/upload", upload.single("file"), (req, res) => {
     res.status(200).json("File has been uploaded");
+  });
+
+  app.get('/*',function(req,res){
+    res.sendFile(path.join(__dirname + '/build/index.html'));
   });
 
 //Routes used for blog
