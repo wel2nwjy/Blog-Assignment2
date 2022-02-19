@@ -13,7 +13,7 @@ const PORT='5000';
 
 const app=express();
 
-app.use(express.static('./build/'))
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
@@ -26,6 +26,7 @@ mongoose
   .then(()=>console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+app.use(express.static('./build/'))
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 const storage = multer.diskStorage({
@@ -53,4 +54,4 @@ app.use("/api/categories", catRoute);
 
 
 
-app.listen((5000),()=>console.log(`Server is running at PORT NO: ${PORT}`));
+app.listen(5000,()=>console.log(`Server is running at PORT NO: ${PORT}`));
