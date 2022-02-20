@@ -53,5 +53,5 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", catRoute);
 
 
-
-app.listen(5000,()=>console.log(`Server is running at PORT NO: ${PORT}`));
+var port = process.env.PORT || PORT;
+app.listen(port,()=>console.log(`Server is running at PORT NO: ${port}`));
