@@ -43,14 +43,14 @@ const storage = multer.diskStorage({
     res.status(200).json("File has been uploaded");
   });
 
-  app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
-
 //Routes used for blog
 app.use("/api/auth", authRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", catRoute);
+
+app.get('/*',function(req,res){
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 
 
 var port = process.env.PORT || PORT;
