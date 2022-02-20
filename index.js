@@ -26,7 +26,7 @@ mongoose
   .then(()=>console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-app.use(express.static('./build/'))
+app.use(express.static(path.join(__dirname, "build")));
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 const storage = multer.diskStorage({
