@@ -44,7 +44,7 @@ const storage = multer.diskStorage({
   });
 
   app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname + '/build/index.html'));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
   });
 
 //Routes used for blog
